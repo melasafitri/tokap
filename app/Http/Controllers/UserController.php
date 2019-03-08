@@ -37,7 +37,18 @@ class UserController extends Controller
     	if($result->save()){
     		return redirect()->route('admin.user')->with('result','success');
     	} else {
-    		return back()-with('result','fail')->withInput();
+    		return back()->with('result','fail')->withInput();
     	}
+    }
+
+    public function edit($id)
+    {
+    	$data = User::where('id',$id)->first();
+    	return view('admin.pages.user.edit',['rc'=>$data]);
+    }
+
+    public function update(Request $req)
+    {
+    	return 'Fungsi Update';
     }
 }
