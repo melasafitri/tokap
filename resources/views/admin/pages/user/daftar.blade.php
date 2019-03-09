@@ -14,7 +14,23 @@
 
 @if(session('result') == 'update')
 <div class="alert alert-success alert-dismissiable fade show">
-	<strong>Update</strong> Berhasil diupdate.
+	<strong>Update!</strong> Berhasil diupdate.
+	<button type="button" class="close" data-dismiss="alert">
+		&times;
+	</button>
+@endif
+
+@if(session('result') == 'delete')
+<div class="alert alert-success alert-dismissiable fade show">
+	<strong>Deleted!</strong> Berhasil dihapus.
+	<button type="button" class="close" data-dismiss="alert">
+		&times;
+	</button>
+@endif
+
+@if(session('result') == 'Fail-delete')
+<div class="alert alert-danger alert-dismissiable fade show">
+	<strong>Failed!</strong> Gagal dihapus.
 	<button type="button" class="close" data-dismiss="alert">
 		&times;
 	</button>
@@ -86,7 +102,7 @@
 
 			<div class="modal-body">
 				Apakah anda yakin ingin menghapusnya?
-				<form id="form-delete" method="post" action="#">
+ 				<form id="form-delete" method="post" action="{{ route('admin.user') }}">
 					{{ csrf_field() }}
 					{{ method_field('delete') }}
 					<input type="hidden" name="id" id="input-id">
@@ -110,7 +126,7 @@
 		$('#deleteModal').modal('show');
 	});
 	$('.btn-delete').click(function(){
-		alert( $('#input-id').val() );
+		$('#form-delete').submit();
 	});
 })
 </script>
