@@ -11,7 +11,7 @@
 			<div class="card">
 				
 				<div class="card-header">
-					<h5>buat Kategori Baru</h5>
+					<h5>Buat Kategori Baru</h5>
 				</div><!-- End Card Header-->
 
 			</div><!-- End Card-->
