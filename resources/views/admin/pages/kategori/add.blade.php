@@ -4,6 +4,14 @@
 <h1>Kategori <small class="text-muted">Tambah</small></h1>
 <hr>
 
+@if( session('result') == 'fail')
+<div class="alert alert-danger alert-dismissiable fade show">
+	<strong >Failed !</strong> Gagal disimpan
+	<button type="button" class="close" data-dismiss="alert">&times;
+	</button>
+</div>
+@endif
+
 <div class="row">
 	<div class="col-md-6 mb-3">
 		<form method="POST" action="{{ route('admin.kategori.add') }}">
